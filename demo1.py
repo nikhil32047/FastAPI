@@ -25,3 +25,17 @@ async def TestCase1(number:int,name:str):
 
 
 
+# Pydantic module
+from fastapi import FastAPI
+from pydantic import BaseModel
+app=FastAPI()
+class Package(BaseModel):
+    number:str
+    name:str
+    desc:str
+@app.post("/T3")
+async def TestCase2(package:Package):
+    return package
+
+
+
